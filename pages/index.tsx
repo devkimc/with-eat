@@ -1,10 +1,8 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import styles from '../styles/Home.module.css';
-import GpsWave from '../components/ui/GpsWave.tsx';
 
 export default function Home() {
     const [mapObj, setMapObj] = useState<any>();
@@ -12,16 +10,14 @@ export default function Home() {
     const [bbb, setbbb] = useState(0);
     const [gasStationList, setGasStationList] = useState([]);
 
-    console.log(mapObj);
-
     const initMap = (lat: number, lon: number) => {
         new naver.maps.Map('map', {
             center: new window.naver.maps.LatLng(lat, lon),
-            zoom: 13,
+            zoom: 15,
         });
         const map = new window.naver.maps.Map('map', {
             center: new window.naver.maps.LatLng(lat, lon),
-            zoom: 13,
+            zoom: 15,
         });
 
         setMapObj(map);
@@ -29,17 +25,26 @@ export default function Home() {
         new window.naver.maps.Marker({
             position: new window.naver.maps.LatLng(lat, lon),
             map: map,
-            // icon: {
-            //     content: [
-            //         // eslint-disable-next-line react/jsx-key
-            //         <GpsWave />,
-            //     ],
-            // },
+            icon: {
+                content: `
+                <div class='gps_ring'>
+                    <div class='gps_ring1'>
+                        <div class='gps_ring2'></div>
+                    </div>
+                </div>
+    
+                <div class='gps_ring'>
+                    <div class='gps_ring1'>
+                        <div class='gps_ring2'> </div>
+                    </div>
+                </div>`,
+                size: new naver.maps.Size(38, 58),
+                anchor: new naver.maps.Point(19, 58),
+            },
         });
     };
 
     useEffect(() => {
-        // initMap(35.24706899999998, 128.863377);
         setCurrentLocation();
     }, []);
 
@@ -63,7 +68,6 @@ export default function Home() {
     }) => {
         const lat = position.coords.latitude; // 위도
         const lon = position.coords.longitude; // 경도
-        console.log(`${lat}|${lon}`);
         setaaa(lat);
         setbbb(lon);
         initMap(lat, lon);
@@ -105,20 +109,7 @@ export default function Home() {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
 
-            <GpsWave />
-
-            <main className={styles.main}>
-                <h1 className={styles.title}>
-                    Welcome to <a href='https://nextjs.org'>With eat!</a>
-                </h1>
-
-                <p className={styles.description}>
-                    Get started by editing{' '}
-                    <code className={styles.code}>pages/index.tsx</code>
-                </p>
-
-                <div id='map' style={{ width: '300px', height: '300px' }} />
-            </main>
+            <div id='map' style={{ width: '100%', minHeight: '50rem' }} />
 
             <footer className={styles.footer}>
                 <a
@@ -126,15 +117,7 @@ export default function Home() {
                     target='_blank'
                     rel='noopener noreferrer'
                 >
-                    Powered by{' '}
-                    <span className={styles.logo}>
-                        <Image
-                            src='/vercel.svg'
-                            alt='Vercel Logo'
-                            width={72}
-                            height={16}
-                        />
-                    </span>
+                    Get eat with me
                 </a>
             </footer>
         </div>
