@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import styles from '../styles/Home.module.css';
+import GpsWave from '../components/ui/GpsWave.tsx';
 
 export default function Home() {
     const [mapObj, setMapObj] = useState<any>();
@@ -28,6 +29,12 @@ export default function Home() {
         new window.naver.maps.Marker({
             position: new window.naver.maps.LatLng(lat, lon),
             map: map,
+            // icon: {
+            //     content: [
+            //         // eslint-disable-next-line react/jsx-key
+            //         <GpsWave />,
+            //     ],
+            // },
         });
     };
 
@@ -97,6 +104,8 @@ export default function Home() {
                 />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
+
+            <GpsWave />
 
             <main className={styles.main}>
                 <h1 className={styles.title}>

@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import '../styles/GpsWave.css';
 import type { AppProps } from 'next/app';
 import { Fragment } from 'react';
 import Head from 'next/head';
