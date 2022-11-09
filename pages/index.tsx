@@ -5,23 +5,101 @@ import axios from 'axios';
 
 import styles from '../styles/Home.module.css';
 
-declare global {
-    interface Window {
-        naver: any;
-    }
-}
-
 export default function Home() {
-    const initMap = () => {};
+    const [mapObj, setMapObj] = useState<any>();
+    const [aaa, setaaa] = useState(0);
+    const [bbb, setbbb] = useState(0);
+    const [gasStationList, setGasStationList] = useState([]);
 
-    // console.log(naver);
+    console.log(mapObj);
+
+    const initMap = (lat: number, lon: number) => {
+        new window.naver.maps.Map('map', {
+            center: new window.naver.maps.LatLng(lat, lon),
+            zoom: 13,
+        });
+        // const map = new window.naver.maps.Map('map', {
+        //     center: new window.naver.maps.LatLng(lat, lon),
+        //     zoom: 13,
+        // });
+
+        // setMapObj(map);
+
+        // new window.naver.maps.Marker({
+        //     position: new window.naver.maps.LatLng(lat, lon),
+        //     map: map,
+        // });
+    };
 
     useEffect(() => {
-        new naver.maps.Map('map', {
-            center: new naver.maps.LatLng(37.3595704, 127.105399),
-            zoom: 10,
-        });
+        initMap(35.24706899999998, 128.863377);
+        // setCurrentLocation();
     }, []);
+
+    // useEffect(() => {
+    //     if (aaa && bbb) {
+    //         getGasStationList(aaa, bbb);
+    //     }
+    // }, [mapObj]);
+
+    // useEffect(() => {
+    //     if (gasStationList.length >= 20) {
+    //         console.log('Log: gasStationList 20!');
+    //     }
+    // }, [gasStationList]);
+
+    const setCurrentLocation = () => {
+        if (navigator.geolocation) {
+            // navigator.geolocation.getCurrentPosition(positionCallBack);
+            console.log('Log: geolocation success');
+            console.log(navigator.geolocation);
+            // initMap(lat, lon);
+            navigator.geolocation.watchPosition((position) => {
+                console.log(
+                    position.coords.latitude,
+                    position.coords.longitude
+                );
+            });
+        } else {
+            console.error('Error: geolocation failure');
+        }
+    };
+
+    const positionCallBack = async (position: {
+        coords: { latitude: number; longitude: number };
+    }) => {
+        const lat = position.coords.latitude; // 위도
+        const lon = position.coords.longitude; // 경도
+        console.log(`${lat}|${lon}`);
+        setaaa(lat);
+        setbbb(lon);
+        initMap(lat, lon);
+    };
+
+    const getGasStationList = (lat: number, lon: number) => {
+        const naverSearchUrl = 'https://map.naver.com/v5/api/search';
+        const gasStationQuery = '%EC%A3%BC%EC%9C%A0%EC%86%8C';
+        console.log('Log: naverSearch start');
+        axios
+            .get(
+                `${naverSearchUrl}?caller=pcweb&query=${gasStationQuery}&type=all&searchCoord=${lon};${lat}&page=1&displayCount=20&isPlaceRecommendationReplace=true&lang=ko`
+            )
+            .then((res: any) => {
+                setGasStationList(res.data.result.place.list);
+
+                console.log('Log: naverSearch success');
+                res.data.result.place.list.forEach((gas: any) => {
+                    const newMarker = new window.naver.maps.Marker({
+                        position: new window.naver.maps.LatLng(gas.y, gas.x),
+                        map: mapObj,
+                    });
+                    newMarker.setMap(mapObj);
+                });
+            })
+            .catch(() => {
+                console.log('Log: naverSearch failure');
+            });
+    };
 
     return (
         <div className={styles.container}>
@@ -36,7 +114,7 @@ export default function Home() {
 
             <main className={styles.main}>
                 <h1 className={styles.title}>
-                    Welcome to <a href='https://nextjs.org'>Next.js!</a>
+                    Welcome to <a href='https://nextjs.org'>With eat!</a>
                 </h1>
 
                 <p className={styles.description}>
@@ -44,50 +122,8 @@ export default function Home() {
                     <code className={styles.code}>pages/index.tsx</code>
                 </p>
 
-                <div className={styles.grid}>
-                    <a href='https://nextjs.org/docs' className={styles.card}>
-                        <h2>Documentation &rarr;</h2>
-                        <p>
-                            Find in-depth information about Next.js features and
-                            API.
-                        </p>
-                    </a>
-
-                    <a href='https://nextjs.org/learn' className={styles.card}>
-                        <h2>Learn &rarr;</h2>
-                        <p>
-                            Learn about Next.js in an interactive course with
-                            quizzes!
-                        </p>
-                    </a>
-
-                    <a
-                        href='https://github.com/vercel/next.js/tree/canary/examples'
-                        className={styles.card}
-                    >
-                        <h2>Examples &rarr;</h2>
-                        <p>
-                            Discover and deploy boilerplate example Next.js
-                            projects.
-                        </p>
-                    </a>
-
-                    <a
-                        href='https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className={styles.card}
-                    >
-                        <h2>Deploy &rarr;</h2>
-                        <p>
-                            Instantly deploy your Next.js site to a public URL
-                            with Vercel.
-                        </p>
-                    </a>
-                </div>
+                <div id='map' style={{ width: '300px', height: '300px' }} />
             </main>
-
-            <div id='map' style={{ width: '100%', height: '100%' }} />
 
             <footer className={styles.footer}>
                 <a
