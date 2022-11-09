@@ -11,6 +11,23 @@ export default function App({ Component, pageProps }: AppProps) {
             <Head>
                 <meta charSet='utf-8' />
                 <title>With eat</title>
+
+                {/* Global Site Tag (gtag.js) - Google Analytics */}
+                <script
+                    async
+                    src={`https://www.googletagmanager.com/gtag/js?id=G-WP1SHHPQ6X`}
+                />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+              {window.dataLayer = window.dataLayer || []
+              function gtag(){dataLayer.push(arguments)}
+              gtag('js', new Date());
+            
+              gtag('config', 'G-WP1SHHPQ6X')}
+          `,
+                    }}
+                />
             </Head>
             <Script
                 strategy='beforeInteractive'
