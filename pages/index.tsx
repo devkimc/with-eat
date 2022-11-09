@@ -14,52 +14,38 @@ export default function Home() {
     console.log(mapObj);
 
     const initMap = (lat: number, lon: number) => {
-        new window.naver.maps.Map('map', {
+        new naver.maps.Map('map', {
             center: new window.naver.maps.LatLng(lat, lon),
             zoom: 13,
         });
-        // const map = new window.naver.maps.Map('map', {
-        //     center: new window.naver.maps.LatLng(lat, lon),
-        //     zoom: 13,
-        // });
+        const map = new window.naver.maps.Map('map', {
+            center: new window.naver.maps.LatLng(lat, lon),
+            zoom: 13,
+        });
 
-        // setMapObj(map);
+        setMapObj(map);
 
-        // new window.naver.maps.Marker({
-        //     position: new window.naver.maps.LatLng(lat, lon),
-        //     map: map,
-        // });
+        new window.naver.maps.Marker({
+            position: new window.naver.maps.LatLng(lat, lon),
+            map: map,
+        });
     };
 
     useEffect(() => {
-        initMap(35.24706899999998, 128.863377);
-        // setCurrentLocation();
+        // initMap(35.24706899999998, 128.863377);
+        setCurrentLocation();
     }, []);
 
-    // useEffect(() => {
-    //     if (aaa && bbb) {
-    //         getGasStationList(aaa, bbb);
-    //     }
-    // }, [mapObj]);
-
-    // useEffect(() => {
-    //     if (gasStationList.length >= 20) {
-    //         console.log('Log: gasStationList 20!');
-    //     }
-    // }, [gasStationList]);
+    useEffect(() => {
+        if (gasStationList.length >= 20) {
+            console.log('Log: gasStationList 20!');
+        }
+    }, [gasStationList]);
 
     const setCurrentLocation = () => {
         if (navigator.geolocation) {
-            // navigator.geolocation.getCurrentPosition(positionCallBack);
-            console.log('Log: geolocation success');
+            navigator.geolocation.getCurrentPosition(positionCallBack);
             console.log(navigator.geolocation);
-            // initMap(lat, lon);
-            navigator.geolocation.watchPosition((position) => {
-                console.log(
-                    position.coords.latitude,
-                    position.coords.longitude
-                );
-            });
         } else {
             console.error('Error: geolocation failure');
         }
