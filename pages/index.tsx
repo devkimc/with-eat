@@ -3,11 +3,23 @@ import { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
-import styles from '../styles/Home.module.css';
-
 const Map = styled.div`
     width: 100%;
     min-height: 50rem;
+`;
+
+const SearchBlock = styled.div`
+    position: absolute;
+    background-color: white;
+    border-radius: 15px;
+    width: 14rem;
+    height: 20.063rem;
+    right: 5rem;
+    top: 5rem;
+    opacity: 0.8;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: rgb(0 0 0 / 30%) 10px 10px 10px;
 `;
 
 export default function Home() {
@@ -17,10 +29,13 @@ export default function Home() {
     const [gasStationList, setGasStationList] = useState([]);
 
     const initMap = (lat: number, lon: number) => {
-        new naver.maps.Map('map', {
-            center: new window.naver.maps.LatLng(lat, lon),
-            zoom: 15,
-        });
+        const ringIcon = `               
+            <div class='gps_ring'>
+                <div class='gps_ring1'>
+                    <div class='gps_ring2'></div>
+                </div>
+            </div>`;
+
         const map = new window.naver.maps.Map('map', {
             center: new window.naver.maps.LatLng(lat, lon),
             zoom: 15,
@@ -32,18 +47,7 @@ export default function Home() {
             position: new window.naver.maps.LatLng(lat, lon),
             map: map,
             icon: {
-                content: `
-                <div class='gps_ring'>
-                    <div class='gps_ring1'>
-                        <div class='gps_ring2'></div>
-                    </div>
-                </div>
-    
-                <div class='gps_ring'>
-                    <div class='gps_ring1'>
-                        <div class='gps_ring2'> </div>
-                    </div>
-                </div>`,
+                content: ringIcon.repeat(2),
                 size: new naver.maps.Size(38, 58),
                 anchor: new naver.maps.Point(19, 58),
             },
@@ -51,7 +55,7 @@ export default function Home() {
     };
 
     useEffect(() => {
-        setCurrentLocation();
+        console.log(setCurrentLocation());
     }, []);
 
     useEffect(() => {
@@ -61,22 +65,22 @@ export default function Home() {
     }, [gasStationList]);
 
     const setCurrentLocation = () => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(positionCallBack);
-            console.log(navigator.geolocation);
+        const geoApi = navigator.geolocation;
+        if (geoApi) {
+            geoApi.getCurrentPosition(onGeoOkay, onGeoError);
         } else {
             console.error('Error: geolocation failure');
         }
     };
 
-    const positionCallBack = async (position: {
+    const onGeoOkay = async (position: {
         coords: { latitude: number; longitude: number };
     }) => {
-        const lat = position.coords.latitude; // 위도
-        const lon = position.coords.longitude; // 경도
-        setaaa(lat);
-        setbbb(lon);
-        initMap(lat, lon);
+        initMap(position.coords.latitude, position.coords.longitude);
+    };
+
+    const onGeoError = async () => {
+        alert("I can't find you. No weather for you.");
     };
 
     const getGasStationList = (lat: number, lon: number) => {
@@ -112,10 +116,11 @@ export default function Home() {
                     name='description'
                     content='함께 먹고 싶은 맛집을 기록하는 지도'
                 />
-                <link rel='icon' href='/favicon.ico' />
             </Head>
 
             <Map id='map' />
+
+            <SearchBlock></SearchBlock>
         </Fragment>
     );
 }
