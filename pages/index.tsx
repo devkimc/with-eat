@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -105,7 +105,7 @@ export default function Home() {
     };
 
     return (
-        <div className={styles.container}>
+        <Fragment>
             <Head>
                 <title>WITH EAT</title>
                 <meta
@@ -115,17 +115,7 @@ export default function Home() {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
 
-            <Map id='map' style={{ width: '100%', minHeight: '50rem' }} />
-
-            <footer className={styles.footer}>
-                <a
-                    href='https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                >
-                    Get eat with me
-                </a>
-            </footer>
-        </div>
+            <Map id='map' />
+        </Fragment>
     );
 }
