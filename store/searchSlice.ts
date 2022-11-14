@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export type SearchResultType = {
     id: string;
     address: string;
+    tel: string;
     category: string[];
     context: string[];
     menuInfo: string;

@@ -65,6 +65,7 @@ const SearchInput = () => {
                         addSearchResult({
                             id: result.id,
                             address: result.address,
+                            tel: result.tel,
                             category: result.category,
                             context: result.context,
                             menuInfo: result.menuInfo,
