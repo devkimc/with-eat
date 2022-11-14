@@ -41,6 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:13.0.2"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:18.2.0"],\
+            ["react-icons", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:4.6.0"],\
             ["react-is", "npm:18.2.0"],\
             ["react-redux", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:8.0.5"],\
             ["styled-components", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:5.3.6"],\
@@ -3050,6 +3051,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-icons", [\
+        ["npm:4.6.0", {\
+          "packageLocation": "./.yarn/cache/react-icons-npm-4.6.0-85b1c2c9bc-a08375d456.zip/node_modules/react-icons/",\
+          "packageDependencies": [\
+            ["react-icons", "npm:4.6.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:4.6.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-icons-virtual-686f40241f/0/cache/react-icons-npm-4.6.0-85b1c2c9bc-a08375d456.zip/node_modules/react-icons/",\
+          "packageDependencies": [\
+            ["react-icons", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:4.6.0"],\
+            ["@types/react", "npm:18.0.25"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-is", [\
         ["npm:16.13.1", {\
           "packageLocation": "./.yarn/cache/react-is-npm-16.13.1-a9b9382b4f-f7a19ac349.zip/node_modules/react-is/",\
@@ -3696,6 +3719,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:13.0.2"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:18.2.0"],\
+            ["react-icons", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:4.6.0"],\
             ["react-is", "npm:18.2.0"],\
             ["react-redux", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:8.0.5"],\
             ["styled-components", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:5.3.6"],\

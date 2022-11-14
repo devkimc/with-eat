@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export type locationType = {
+export type LocationSliceType = {
     lat: number;
     lon: number;
 };
@@ -15,7 +15,7 @@ export const locationSlice = createSlice({
         changeLocation: (
             state,
             action: {
-                payload: locationType;
+                payload: LocationSliceType;
                 type: string;
             }
         ) => {

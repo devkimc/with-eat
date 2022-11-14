@@ -14,7 +14,7 @@ const SearchModalBlock = styled.div`
     padding: 1rem 1rem;
 
     position: absolute;
-    opacity: 0.8;
+    /* opacity: 0.8; */
     z-index: 1;
     cursor: pointer;
 `;

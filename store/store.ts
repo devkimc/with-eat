@@ -1,13 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { locationType, locationSlice } from './locationSlice';
+import { LocationSliceType, locationSlice } from './locationSlice';
+import { searchSlice, SearchSliceType } from './searchSlice';
 
 export type StoreStateType = {
-    location: locationType;
+    location: LocationSliceType;
+    search: SearchSliceType;
 };
 
 const store = configureStore({
     reducer: {
         location: locationSlice.reducer,
+        search: searchSlice.reducer,
     },
 });
 
