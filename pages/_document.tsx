@@ -10,10 +10,13 @@ class MyDocument extends Document {
                         strategy='beforeInteractive'
                         src='https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=97m0gvoo7x'
                     />
+
+                    {/* vercel */}
                     <Script
                         strategy='beforeInteractive'
                         src='https://www.googletagmanager.com/gtag/js?id=G-WP1SHHPQ6X'
                     />
+
                     <Script
                         id='gtag'
                         dangerouslySetInnerHTML={{
@@ -23,6 +26,25 @@ class MyDocument extends Document {
                             gtag('js', new Date());
                           
                             gtag('config', 'G-WP1SHHPQ6X')}
+                        `,
+                        }}
+                    />
+
+                    {/* netlify */}
+                    <Script
+                        strategy='beforeInteractive'
+                        src='https://www.googletagmanager.com/gtag/js?id=G-FHK8RHJGBF'
+                    />
+
+                    <Script
+                        id='gtag'
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                            {window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                          
+                            gtag('config', 'G-FHK8RHJGBF')}
                         `,
                         }}
                     />

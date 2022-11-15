@@ -5,12 +5,11 @@ import SearchResultList from './SearchResultList';
 
 const SearchModalBlock = styled.div`
     background-color: white;
-    border-radius: 15px;
     width: 19rem;
     height: 30.063rem;
     right: 5rem;
     top: 5rem;
-    border-radius: 20px;
+    border-radius: 1.2rem;
     box-shadow: rgb(0 0 0 / 30%) 10px 10px 10px;
     padding: 1rem 1rem;
 

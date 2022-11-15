@@ -10,7 +10,7 @@ import { GpsRing } from '../Icon/GpsRing';
 
 const Map = styled.div`
     width: 100%;
-    min-height: 50rem;
+    height: 100vh;
 `;
 
 const MapView = () => {

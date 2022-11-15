@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { StoreStateType } from '../../store/store';
+import { MdOutlineBookmarks } from 'react-icons/md';
 
 const SearchResultListBlock = styled.div`
     overflow-y: scroll;
@@ -27,6 +28,7 @@ const SearchResultListBlock = styled.div`
 `;
 
 const Content = styled.div`
+    display: flex;
     background-color: #f9f9f9;
     width: 95%;
     height: 5rem;
@@ -36,6 +38,15 @@ const Content = styled.div`
     border-radius: 0.25rem;
 
     box-shadow: 0 2px 3px rgb(0 10 18 / 10%), 0 0 0 1px rgb(0 10 18 / 10%);
+`;
+
+const ContentTextBox = styled.div``;
+
+const ContentIconBox = styled.div`
+    cursor: pointer;
+
+    padding-left: 1rem;
+    margin: auto 0;
 `;
 
 const ContentTop = styled.div`
@@ -62,6 +73,7 @@ const ContentAddress = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    width: 12rem;
 `;
 
 const ContentBottom = styled.div``;
@@ -86,14 +98,19 @@ const SearchResultList = () => {
         <SearchResultListBlock>
             {searchResultList.map((place) => (
                 <Content key={place.id}>
-                    <ContentTop>
-                        <ContentTitle>{place.name}</ContentTitle>
-                        <ContentAddress>{place.address}</ContentAddress>
-                    </ContentTop>
-                    <ContentBottom>
-                        <ContentTel>{place.tel}</ContentTel>
-                        <ContentCategory>{place.category}</ContentCategory>
-                    </ContentBottom>
+                    <ContentTextBox>
+                        <ContentTop>
+                            <ContentTitle>{place.name}</ContentTitle>
+                            <ContentAddress>{place.address}</ContentAddress>
+                        </ContentTop>
+                        <ContentBottom>
+                            <ContentTel>{place.tel}</ContentTel>
+                            <ContentCategory>{place.category}</ContentCategory>
+                        </ContentBottom>
+                    </ContentTextBox>
+                    <ContentIconBox>
+                        <MdOutlineBookmarks color='rgba(29,192,120,0.48)' />
+                    </ContentIconBox>
                 </Content>
             ))}
         </SearchResultListBlock>

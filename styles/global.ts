@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
     
     body {
         font-family: 'AppleSDGothicNeoM';
+        background-color: #f9f9f9;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -41,6 +42,12 @@ const GlobalStyle = createGlobalStyle`
           background: black;
         }
     }
+
+    @media screen and (max-width: 480px){
+    *{
+      font-size: 13px;
+    }
+  }
 
 `;
 
