@@ -1,8 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { changeLocation } from '../../store/locationSlice';
+import { changeMap } from '../../store/mapSlice';
 import { searchCurrentLocation } from '../../utils/geoLocation-util';
 
 import { GpsRing } from '../Icon/GpsRing';
@@ -13,7 +14,6 @@ const Map = styled.div`
 `;
 
 const MapView = () => {
-    const [mapObj, setMapObj] = useState<any>();
     const dispatch = useDispatch();
 
     const initMap = (lat: number, lon: number) => {
@@ -21,8 +21,6 @@ const MapView = () => {
             center: new naver.maps.LatLng(lat, lon),
             zoom: 15,
         });
-
-        setMapObj(map);
 
         new naver.maps.Marker({
             position: new naver.maps.LatLng(lat, lon),
@@ -33,6 +31,8 @@ const MapView = () => {
                 anchor: new naver.maps.Point(19, 58),
             },
         });
+
+        // dispatch(changeMap(map));
     };
 
     useEffect(() => {
@@ -52,7 +52,7 @@ const MapView = () => {
     };
 
     const onGeoError = async () => {
-        alert("I can't find you. No weather for you.");
+        alert('geoLocation error: 현재 위치를 찾을 수 없습니다.');
     };
     return <Map id='map' />;
 };

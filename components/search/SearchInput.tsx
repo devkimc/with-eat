@@ -48,11 +48,10 @@ const SearchIcon = styled.div`
 
 const SearchInput = () => {
     const [searchIp, onChangeSearchIp] = useInput('');
-
-    // const test = useSelector((state: StoreStateType) => state.search);
-    // console.log(test);
-
     const { lat, lon } = useSelector((state: StoreStateType) => state.location);
+
+    // const mapObj = useSelector((state: StoreStateType) => state.map.map);
+
     const dispatch = useDispatch();
 
     const onKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -81,16 +80,13 @@ const SearchInput = () => {
                         y: place.y,
                     })
                 );
+
+                // new naver.maps.Marker({
+                //     position: new naver.maps.LatLng(place.y, place.x),
+                //     map: mapObj,
+                // });
             });
         }
-
-        // res.data.result.place.list.forEach((gas: any) => {
-        //     const newMarker = new naver.maps.Marker({
-        //         position: new naver.maps.LatLng(gas.y, gas.x),
-        //         map: mapObj,
-        //     });
-        //     newMarker.setMap(mapObj);
-        // });
     };
 
     return (

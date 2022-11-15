@@ -9,8 +9,8 @@ export type SearchResultType = {
     context: string[];
     menuInfo: string;
     thumUrl: string;
-    x: string;
-    y: string;
+    x: number;
+    y: number;
 };
 
 export type SearchSliceType = {
