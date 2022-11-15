@@ -57,7 +57,11 @@ const ContentAddress = styled.div`
     align-items: center;
     color: #333;
     margin-bottom: 4px;
-    font-size: 0.9375rem;
+    font-size: 0.7375rem;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
 const ContentBottom = styled.div``;
@@ -65,11 +69,11 @@ const ContentBottom = styled.div``;
 const ContentTel = styled.span`
     color: #757570;
     margin-right: 8px;
-    font-size: 0.9375rem;
+    font-size: 0.735rem;
 `;
 
 const ContentCategory = styled.span`
-    font-size: 0.875rem;
+    font-size: 0.735rem;
     color: #979797;
 `;
 
@@ -88,7 +92,7 @@ const SearchResultList = () => {
                     </ContentTop>
                     <ContentBottom>
                         <ContentTel>{place.tel}</ContentTel>
-                        {/* <ContentCategory>{place.category}</ContentCategory> */}
+                        <ContentCategory>{place.category}</ContentCategory>
                     </ContentBottom>
                 </Content>
             ))}

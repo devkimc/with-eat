@@ -22,6 +22,8 @@ const Input = styled.input`
     width: 100%;
     outline: none;
 
+    font-size: 0.9rem;
+    font-family: 'AppleSDGothicNeoB';
     background-color: rgba(29, 192, 120, 0.12);
     border: 1px solid rgba(29, 192, 120, 0.24);
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
@@ -39,8 +41,8 @@ const Input = styled.input`
 
 const SearchIcon = styled.div`
     position: absolute;
-    top: 0.8rem;
-    right: 0.8rem;
+    top: 1.1rem;
+    right: 1.1rem;
     cursor: pointer;
 `;
 
@@ -94,7 +96,7 @@ const SearchInput = () => {
     return (
         <SearchInputBlock>
             <Input
-                maxLength={10}
+                maxLength={15}
                 onChange={onChangeSearchIp}
                 onKeyPress={onKeyPress}
             />
