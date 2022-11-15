@@ -1,17 +1,37 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { StoreStateType } from '../../store/store';
 
 const SearchResultListBlock = styled.div`
+    overflow-y: scroll;
+    height: 25rem;
     margin-top: 1rem;
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #ebebeb;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: #6d6d6d;
+    }
 `;
 
 const Content = styled.div`
     background-color: #f9f9f9;
     width: 95%;
     height: 5rem;
-    margin: 0 auto;
+    margin: 0.1rem auto 1rem auto;
+    /* margin-bottom: 1rem; // TODO: last-child */
     padding: 0.5rem;
     border-radius: 0.25rem;
 
@@ -28,6 +48,8 @@ const ContentTitle = styled.a`
     color: #333;
     margin-bottom: 4px;
     font-size: 1rem;
+
+    font-family: 'AppleSDGothicNeoB';
 `;
 
 const ContentAddress = styled.div`
@@ -52,23 +74,24 @@ const ContentCategory = styled.span`
 `;
 
 const SearchResultList = () => {
-    const state = useSelector((state: StoreStateType) => state);
-    console.log(state.search);
+    const searchResultList = useSelector(
+        (state: StoreStateType) => state.search.searchResult
+    );
 
     return (
         <SearchResultListBlock>
-            <Content>
-                <ContentTop>
-                    <ContentTitle>모에뜨</ContentTitle>
-                    <ContentAddress>
-                        서울특별시 강서구 개화동 376-57
-                    </ContentAddress>
-                </ContentTop>
-                <ContentBottom>
-                    <ContentTel>02-2664-6163</ContentTel>
-                    <ContentCategory>한식</ContentCategory>
-                </ContentBottom>
-            </Content>
+            {searchResultList.map((place) => (
+                <Content key={place.id}>
+                    <ContentTop>
+                        <ContentTitle>{place.name}</ContentTitle>
+                        <ContentAddress>{place.address}</ContentAddress>
+                    </ContentTop>
+                    <ContentBottom>
+                        <ContentTel>{place.tel}</ContentTel>
+                        {/* <ContentCategory>{place.category}</ContentCategory> */}
+                    </ContentBottom>
+                </Content>
+            ))}
         </SearchResultListBlock>
     );
 };

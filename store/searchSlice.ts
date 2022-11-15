@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export type SearchResultType = {
     id: string;
+    name: string;
     address: string;
     tel: string;
     category: string[];
@@ -25,7 +26,10 @@ export const searchSlice = createSlice({
         addSearchResult: (state, action) => {
             state.searchResult = state.searchResult.concat(action.payload);
         },
+        clearSearchResult: (state) => {
+            state.searchResult = [];
+        },
     },
 });
 
-export const { addSearchResult } = searchSlice.actions;
+export const { addSearchResult, clearSearchResult } = searchSlice.actions;

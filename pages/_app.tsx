@@ -5,7 +5,7 @@ import Head from 'next/head';
 
 import GlobalStyle from '../styles/global';
 import store from '../store/store';
-import '../styles/globals.css';
+// import '../styles/globals.css';
 import '../styles/GpsWave.css';
 
 export default function App({ Component, pageProps }: AppProps) {
