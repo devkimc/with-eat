@@ -1,5 +1,5 @@
-declare global {
-    interface Window {
-        naver: { [key: string]: any };
-    }
-}
+// declare global {
+//     interface Window {
+//         naver: { [key: string]: any };
+//     }
+// }

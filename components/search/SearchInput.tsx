@@ -11,6 +11,8 @@ import {
     SearchResultType,
 } from '../../store/searchSlice';
 import { searchPlaceList } from '../../api/search';
+import { hideMarker, makeMarker } from '../../utils/mapMarker-util';
+import { addMarker, clearMarker } from '../../store/mapSlice';
 
 const SearchInputBlock = styled.div`
     position: relative;
@@ -50,7 +52,10 @@ const SearchInput = () => {
     const [searchIp, onChangeSearchIp] = useInput('');
     const { lat, lon } = useSelector((state: StoreStateType) => state.location);
 
-    // const mapObj = useSelector((state: StoreStateType) => state.map.map);
+    const mapObj = useSelector((state: StoreStateType) => state.map.map);
+    const markers = useSelector((state: StoreStateType) => state.map.markers);
+    const stateObj = useSelector((state: StoreStateType) => state);
+    console.log(stateObj);
 
     const dispatch = useDispatch();
 
@@ -62,7 +67,9 @@ const SearchInput = () => {
         const result = await searchPlaceList({ searchIp, lon, lat });
 
         if (result?.data.result) {
+            dispatch(clearMarker());
             dispatch(clearSearchResult());
+            markers.forEach((marker) => hideMarker(marker));
 
             const resList = result.data.result.place.list;
             resList.forEach((place: SearchResultType) => {
@@ -81,10 +88,8 @@ const SearchInput = () => {
                     })
                 );
 
-                // new naver.maps.Marker({
-                //     position: new naver.maps.LatLng(place.y, place.x),
-                //     map: mapObj,
-                // });
+                const marker = makeMarker(mapObj, undefined, place.y, place.x);
+                dispatch(addMarker(marker));
             });
         }
     };
