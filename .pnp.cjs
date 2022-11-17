@@ -51,6 +51,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react-hooks", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:4.6.0"],\
             ["mongodb", "npm:4.12.0"],\
             ["next", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:13.0.2"],\
+            ["next-connect", "npm:0.13.0"],\
             ["prettier", "npm:2.7.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:18.2.0"],\
@@ -4154,6 +4155,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["next-connect", [\
+        ["npm:0.13.0", {\
+          "packageLocation": "./.yarn/cache/next-connect-npm-0.13.0-c253551606-1c63c17eaf.zip/node_modules/next-connect/",\
+          "packageDependencies": [\
+            ["next-connect", "npm:0.13.0"],\
+            ["trouter", "npm:3.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["object-assign", [\
         ["npm:4.1.1", {\
           "packageLocation": "./.yarn/cache/object-assign-npm-4.1.1-1004ad6dec-fcc6e4ea8c.zip/node_modules/object-assign/",\
@@ -4612,6 +4623,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["regexparam", [\
+        ["npm:1.3.0", {\
+          "packageLocation": "./.yarn/cache/regexparam-npm-1.3.0-47c2b50eae-ea6449d998.zip/node_modules/regexparam/",\
+          "packageDependencies": [\
+            ["regexparam", "npm:1.3.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["regexpp", [\
         ["npm:3.2.0", {\
           "packageLocation": "./.yarn/cache/regexpp-npm-3.2.0-2513f32cfc-a78dc5c715.zip/node_modules/regexpp/",\
@@ -5041,6 +5061,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["trouter", [\
+        ["npm:3.2.0", {\
+          "packageLocation": "./.yarn/cache/trouter-npm-3.2.0-518e678a20-50beb18d4c.zip/node_modules/trouter/",\
+          "packageDependencies": [\
+            ["trouter", "npm:3.2.0"],\
+            ["regexparam", "npm:1.3.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["tsconfig-paths", [\
         ["npm:3.14.1", {\
           "packageLocation": "./.yarn/cache/tsconfig-paths-npm-3.14.1-17a815b5c5-8afa01c673.zip/node_modules/tsconfig-paths/",\
@@ -5261,6 +5291,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react-hooks", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:4.6.0"],\
             ["mongodb", "npm:4.12.0"],\
             ["next", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:13.0.2"],\
+            ["next-connect", "npm:0.13.0"],\
             ["prettier", "npm:2.7.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:6d29125e6ac5770c8f79ceb284d08a24cbe526dc7032d982cf44c30111895292acf7d94e3f6a2896f88ed278807b58b2359e5873a53c115cc54efc0c9fb328ef#npm:18.2.0"],\
