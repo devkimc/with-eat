@@ -1,4 +1,4 @@
-import axiosClient from './axiosClient';
+import naverAxiosClient from './naverAxiosClient';
 
 type SearchPlaceListIp = {
     searchIp: string;
@@ -9,7 +9,7 @@ type SearchPlaceListIp = {
 const searchPlaceList = async ({ searchIp, lon, lat }: SearchPlaceListIp) => {
     const defaultParams =
         'displayCount=20&isPlaceRecommendationReplace=true&lang=ko';
-    return axiosClient.get(
+    return naverAxiosClient.get(
         `?caller=pcweb&query=${searchIp}&type=all&searchCoord=${lon};${lat}&page=1&${defaultParams}`,
     );
 };

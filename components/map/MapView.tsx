@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+
 import { changeLocation } from '../../store/locationSlice';
 import { changeMap } from '../../store/mapSlice';
 import searchCurrentLocation from '../../utils/geoLocation-util';

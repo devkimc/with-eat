@@ -10,9 +10,9 @@ import {
     clearSearchResult,
     SearchResultType,
 } from '../../store/searchSlice';
-import searchPlaceList from '../../api/search';
 import { hideMarker, makeMarker } from '../../utils/mapMarker-util';
 import { addMarker, clearMarker } from '../../store/mapSlice';
+import searchPlaceList from '../../api/naver/search';
 
 const SearchInputBlock = styled.div`
     position: relative;
