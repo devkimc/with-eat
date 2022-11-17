@@ -54,8 +54,7 @@ const SearchInput = () => {
 
     const mapObj = useSelector((state: StoreStateType) => state.map.map);
     const markers = useSelector((state: StoreStateType) => state.map.markers);
-    const stateObj = useSelector((state: StoreStateType) => state);
-    console.log(stateObj);
+    // const stateObj = useSelector((state: StoreStateType) => state);
 
     const dispatch = useDispatch();
 

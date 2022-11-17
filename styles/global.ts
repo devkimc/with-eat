@@ -33,16 +33,6 @@ const GlobalStyle = createGlobalStyle`
         background-color: #f9f9f9;
     }
 
-    @media (prefers-color-scheme: dark) {
-        html {
-          color-scheme: dark;
-        }
-        body {
-          color: white;
-          background: black;
-        }
-    }
-
     @media screen and (max-width: 480px){
     *{
       font-size: 13px;
