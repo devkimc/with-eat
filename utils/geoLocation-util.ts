@@ -1,6 +1,6 @@
-export const searchCurrentLocation = (
+const searchCurrentLocation = (
     onGeoOkay: PositionCallback,
-    onGeoError: PositionErrorCallback | null | undefined
+    onGeoError: PositionErrorCallback | null | undefined,
 ) => {
     const geoApi = navigator.geolocation;
     if (geoApi) {
@@ -9,3 +9,5 @@ export const searchCurrentLocation = (
         console.error('Error: geolocation failure');
     }
 };
+
+export default searchCurrentLocation;

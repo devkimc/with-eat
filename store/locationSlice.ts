@@ -17,7 +17,7 @@ export const locationSlice = createSlice({
             action: {
                 payload: LocationSliceType;
                 type: string;
-            }
+            },
         ) => {
             state.lat = action.payload.lat;
             state.lon = action.payload.lon;

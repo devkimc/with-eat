@@ -2,11 +2,11 @@ export const makeMarker = (
     map: naver.maps.Map,
     icon: string | undefined,
     lat: number,
-    lon: number
+    lon: number,
 ) => {
     const marker = new naver.maps.Marker({
         position: new naver.maps.LatLng(lat, lon),
-        map: map,
+        map,
         icon: icon
             ? {
                   content: icon,

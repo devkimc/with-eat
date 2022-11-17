@@ -26,7 +26,7 @@ export const searchSlice = createSlice({
         addSearchResult: (state, action) => {
             state.searchResult = state.searchResult.concat(action.payload);
         },
-        clearSearchResult: (state) => {
+        clearSearchResult: state => {
             state.searchResult = [];
         },
     },

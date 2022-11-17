@@ -1,3 +1,4 @@
+import React from 'react';
 import Document, {
     Html,
     Head,
@@ -11,7 +12,7 @@ import { ServerStyleSheet } from 'styled-components';
 
 class MyDocument extends Document {
     static async getInitialProps(
-        ctx: DocumentContext
+        ctx: DocumentContext,
     ): Promise<DocumentInitialProps> {
         const sheet = new ServerStyleSheet();
         const originalRenderPage = ctx.renderPage;
@@ -19,7 +20,8 @@ class MyDocument extends Document {
         try {
             ctx.renderPage = () =>
                 originalRenderPage({
-                    enhanceApp: (App) => (props) =>
+                    enhanceApp: App => props =>
+                        // eslint-disable-next-line react/jsx-props-no-spreading
                         sheet.collectStyles(<App {...props} />),
                 });
 
@@ -40,21 +42,21 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html lang='kr'>
+            <Html lang="kr">
                 <Head>
                     <Script
-                        strategy='beforeInteractive'
-                        src='https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=97m0gvoo7x'
+                        strategy="beforeInteractive"
+                        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=97m0gvoo7x"
                     />
 
                     {/* vercel */}
                     <Script
-                        strategy='beforeInteractive'
-                        src='https://www.googletagmanager.com/gtag/js?id=G-WP1SHHPQ6X'
+                        strategy="beforeInteractive"
+                        src="https://www.googletagmanager.com/gtag/js?id=G-WP1SHHPQ6X"
                     />
 
                     <Script
-                        id='gtag'
+                        id="gtag"
                         dangerouslySetInnerHTML={{
                             __html: `
                             {window.dataLayer = window.dataLayer || []
@@ -67,7 +69,7 @@ class MyDocument extends Document {
                     />
                 </Head>
                 <body>
-                    <div id='overlays' />
+                    <div id="overlays" />
                     <Main />
                     <NextScript />
                 </body>

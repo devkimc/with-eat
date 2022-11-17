@@ -18,7 +18,7 @@ export const mapSlice = createSlice({
         addMarker: (state, action) => {
             state.markers = state.markers.concat(action.payload);
         },
-        clearMarker: (state) => {
+        clearMarker: state => {
             state.markers = [];
         },
     },

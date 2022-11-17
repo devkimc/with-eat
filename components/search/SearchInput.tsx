@@ -10,7 +10,7 @@ import {
     clearSearchResult,
     SearchResultType,
 } from '../../store/searchSlice';
-import { searchPlaceList } from '../../api/search';
+import searchPlaceList from '../../api/search';
 import { hideMarker, makeMarker } from '../../utils/mapMarker-util';
 import { addMarker, clearMarker } from '../../store/mapSlice';
 
@@ -69,7 +69,7 @@ const SearchInput = () => {
         if (result?.data.result) {
             dispatch(clearMarker());
             dispatch(clearSearchResult());
-            markers.forEach((marker) => hideMarker(marker));
+            markers.forEach(marker => hideMarker(marker));
 
             const resList = result.data.result.place.list;
             resList.forEach((place: SearchResultType) => {
@@ -85,7 +85,7 @@ const SearchInput = () => {
                         thumUrl: place.thumUrl,
                         x: place.x,
                         y: place.y,
-                    })
+                    }),
                 );
 
                 const marker = makeMarker(mapObj, undefined, place.y, place.x);
@@ -102,7 +102,7 @@ const SearchInput = () => {
                 onKeyPress={onKeyPress}
             />
             <SearchIcon onClick={onSearchPlaceList}>
-                <TbSearch color='#495057' />
+                <TbSearch color="#495057" />
             </SearchIcon>
         </SearchInputBlock>
     );

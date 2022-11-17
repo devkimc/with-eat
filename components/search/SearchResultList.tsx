@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { StoreStateType } from '../../store/store';
 import { MdOutlineBookmarks } from 'react-icons/md';
+import { StoreStateType } from '../../store/store';
 
 const SearchResultListBlock = styled.div`
     overflow-y: scroll;
@@ -91,12 +91,12 @@ const ContentCategory = styled.span`
 
 const SearchResultList = () => {
     const searchResultList = useSelector(
-        (state: StoreStateType) => state.search.searchResult
+        (state: StoreStateType) => state.search.searchResult,
     );
 
     return (
         <SearchResultListBlock>
-            {searchResultList.map((place) => (
+            {searchResultList.map(place => (
                 <Content key={place.id}>
                     <ContentTextBox>
                         <ContentTop>
@@ -109,7 +109,7 @@ const SearchResultList = () => {
                         </ContentBottom>
                     </ContentTextBox>
                     <ContentIconBox>
-                        <MdOutlineBookmarks color='rgba(29,192,120,0.48)' />
+                        <MdOutlineBookmarks color="rgba(29,192,120,0.48)" />
                     </ContentIconBox>
                 </Content>
             ))}
