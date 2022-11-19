@@ -10,7 +10,7 @@ const SearchModalBlock = styled.div`
     right: 5rem;
     top: 5rem;
     border-radius: 1.2rem;
-    box-shadow: rgb(0 0 0 / 30%) 10px 10px 10px;
+    box-shadow: rgb(0 0 0 / 30%) 0.625rem 0.625rem 0.625rem;
     padding: 1rem 1rem;
 
     position: absolute;

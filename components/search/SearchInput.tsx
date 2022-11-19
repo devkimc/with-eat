@@ -26,17 +26,17 @@ const Input = styled.input`
 
     font-size: 0.9rem;
     font-family: 'AppleSDGothicNeoB';
-    background-color: rgba(29, 192, 120, 0.12);
-    border: 1px solid rgba(29, 192, 120, 0.24);
-    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
-    padding: 14px 20px;
-    border-radius: 28px;
+    background-color: rgba(37, 157, 179, 0.12);
+    border: 0.063rem solid rgba(37, 157, 179, 0.24);
+    box-shadow: 0 0.125rem 0.25rem 0 rgb(0 0 0 / 10%);
+    padding: 0.875rem 0.078rem;
+    border-radius: 1.75rem;
     transition: all 0.2s ease;
 
     :focus {
         outline: unset;
-        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
-        border: 1px solid #dedede;
+        box-shadow: 0 0.25rem 0.5rem 0 rgb(0 0 0 / 20%);
+        border: 0.063rem solid #dedede;
         background-color: #fff;
     }
 `;

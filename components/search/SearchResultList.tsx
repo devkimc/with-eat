@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { MdOutlineBookmarks } from 'react-icons/md';
 import { StoreStateType } from '../../store/store';
+import ConfirmModal from '../modal/ConfirmModal';
 
 const SearchResultListBlock = styled.div`
     overflow-y: scroll;
@@ -11,18 +12,18 @@ const SearchResultListBlock = styled.div`
 
     /* Scrollbar Styling */
     ::-webkit-scrollbar {
-        width: 4px;
+        width: 0.25rem;
     }
 
     ::-webkit-scrollbar-track {
         background-color: #ebebeb;
-        -webkit-border-radius: 10px;
-        border-radius: 10px;
+        -webkit-border-radius: 0.625rem;
+        border-radius: 0.625rem;
     }
 
     ::-webkit-scrollbar-thumb {
-        -webkit-border-radius: 10px;
-        border-radius: 10px;
+        -webkit-border-radius: 0.625rem;
+        border-radius: 0.625rem;
         background: #6d6d6d;
     }
 `;
@@ -37,7 +38,8 @@ const Content = styled.div`
     padding: 0.5rem;
     border-radius: 0.25rem;
 
-    box-shadow: 0 2px 3px rgb(0 10 18 / 10%), 0 0 0 1px rgb(0 10 18 / 10%);
+    box-shadow: 0 0.125rem 0.188rem rgb(0 10 18 / 10%),
+        0 0 0 0.063rem rgb(0 10 18 / 10%);
 `;
 
 const ContentTextBox = styled.div``;
@@ -57,7 +59,7 @@ const ContentTitle = styled.a`
     display: flex;
     align-items: center;
     color: #333;
-    margin-bottom: 4px;
+    margin-bottom: 0.25rem;
     font-size: 1rem;
 
     font-family: 'AppleSDGothicNeoB';
@@ -67,7 +69,7 @@ const ContentAddress = styled.div`
     display: flex;
     align-items: center;
     color: #333;
-    margin-bottom: 4px;
+    margin-bottom: 0.25rem;
     font-size: 0.7375rem;
 
     white-space: nowrap;
@@ -80,7 +82,7 @@ const ContentBottom = styled.div``;
 
 const ContentTel = styled.span`
     color: #757570;
-    margin-right: 8px;
+    margin-right: 0.5rem;
     font-size: 0.735rem;
 `;
 
@@ -113,6 +115,7 @@ const SearchResultList = () => {
                     </ContentIconBox>
                 </Content>
             ))}
+            <ConfirmModal />
         </SearchResultListBlock>
     );
 };
