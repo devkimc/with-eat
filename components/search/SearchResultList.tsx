@@ -115,7 +115,7 @@ const SearchResultList = () => {
                     </ContentIconBox>
                 </Content>
             ))}
-            <ConfirmModal />
+            {/* <ConfirmModal /> */}
         </SearchResultListBlock>
     );
 };
