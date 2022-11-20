@@ -6,8 +6,8 @@ const ConfirmModal = () => {
         <ConfirmModalBlock>
             <Modal>
                 <Input placeholder="인증코드를 입력해주세요." />
-                <Button confirm>확인</Button>
-                <Button confirm={false}>취소</Button>
+                {/* <Button confirm>확인</Button>
+                <Button confirm={false}>취소</Button> */}
             </Modal>
         </ConfirmModalBlock>
     );
@@ -49,21 +49,21 @@ const Input = styled.input`
     border-radius: 1.75rem;
 `;
 
-const Button = styled.button`
-    width: 100%;
-    cursor: pointer;
+// const Button = styled.button`
+//     width: 100%;
+//     cursor: pointer;
 
-    font-size: 0.9rem;
-    font-family: 'AppleSDGothicNeoB';
-    background-color: ${props =>
-        props.confirm ? 'rgba(30, 185, 69, 0.12)' : 'rgba(206, 29, 29, 0.12)'};
-    border: ${props =>
-        props.confirm ? 'rgba(30, 185, 69, 0.24)' : 'rgba(206, 29, 29, 0.24)'};
-    box-shadow: 0 0.125rem 0.25rem 0 rgb(0 0 0 / 10%);
-    padding: 0.875rem 2rem;
-    border-radius: 1.75rem;
-    transition: all 0.2s ease;
-    margin-top: 0.5rem;
-`;
+//     font-size: 0.9rem;
+//     font-family: 'AppleSDGothicNeoB';
+//     background-color: ${props =>
+//         props.confirm ? 'rgba(30, 185, 69, 0.12)' : 'rgba(206, 29, 29, 0.12)'};
+//     border: ${props =>
+//         props.confirm ? 'rgba(30, 185, 69, 0.24)' : 'rgba(206, 29, 29, 0.24)'};
+//     box-shadow: 0 0.125rem 0.25rem 0 rgb(0 0 0 / 10%);
+//     padding: 0.875rem 2rem;
+//     border-radius: 1.75rem;
+//     transition: all 0.2s ease;
+//     margin-top: 0.5rem;
+// `;
 
 export default ConfirmModal;
