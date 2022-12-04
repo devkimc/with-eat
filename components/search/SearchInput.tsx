@@ -29,7 +29,7 @@ const Input = styled.input`
     background-color: rgba(37, 157, 179, 0.12);
     border: 0.063rem solid rgba(37, 157, 179, 0.24);
     box-shadow: 0 0.125rem 0.25rem 0 rgb(0 0 0 / 10%);
-    padding: 0.875rem 0.078rem;
+    padding: 0.875rem 1.078rem;
     border-radius: 1.75rem;
     transition: all 0.2s ease;
 
