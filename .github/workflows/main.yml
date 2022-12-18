@@ -32,7 +32,7 @@ jobs:
         yarn export
         
     - name: archive drcloud 
-      run: tar cvfz ./drcloud.tar.gz /build
+      run: tar cvfz ./drcloud.tar.gz ./build
        
     - name: AWS configure credentials
       uses: aws-actions/configure-aws-credentials@v1
