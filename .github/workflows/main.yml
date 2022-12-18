@@ -14,11 +14,6 @@ jobs:
     steps:
     - name: checkout release
       uses: actions/checkout@v3
-
-    - name: Clean temp directory
-      run: |
-        ls -a
-        rm -rf *
         
     - name: Build
       run: |
