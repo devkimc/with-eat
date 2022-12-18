@@ -7,7 +7,8 @@
         "build": "next build",
         "export": "next export -o build/",
         "start": "next start",
-        "lint": "eslint ./**/*.{ts,tsx,js,jsx}"
+        "lint": "eslint ./**/*.{ts,tsx,js,jsx}",
+        "postinstall": "husky install"
     },
     "dependencies": {
         "@reduxjs/toolkit": "^1.9.0",
@@ -44,6 +45,14 @@
         "eslint-plugin-prettier": "^4.2.1",
         "eslint-plugin-react": "^7.31.10",
         "eslint-plugin-react-hooks": "^4.6.0",
+        "husky": ">=7",
+        "lint-staged": ">=10",
         "prettier": "^2.7.1"
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": [
+            "eslint --fix",
+            "prettier --write"
+        ]
     }
 }
