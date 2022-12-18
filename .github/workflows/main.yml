@@ -15,12 +15,22 @@ jobs:
     - name: checkout release
       uses: actions/checkout@v3
         
+    - name: Package install
+      run: |
+        ls -a
+        yarn
+        
     - name: Build
       run: |
         ls -a
         yarn build
+        
+        
+    - name: Export
+      run: |
+        ls -a
         yarn export
-      
+        
     - name: archive drcloud 
       run: tar cvfz ./drcloud.tar.gz *
        
