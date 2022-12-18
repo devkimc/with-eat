@@ -17,6 +17,7 @@ jobs:
 
     - name: Clean temp directory
       run: |
+        ls -a
         rm -rf *
         cp -r $GITHUB_WORKSPACE . 
       
