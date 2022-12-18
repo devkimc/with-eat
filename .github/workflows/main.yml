@@ -19,7 +19,12 @@ jobs:
       run: |
         ls -a
         rm -rf *
-        cp -r $GITHUB_WORKSPACE . 
+        
+    - name: Build
+      run: |
+        ls -a
+        yarn build
+        yarn export
       
     - name: archive drcloud 
       run: tar cvfz ./drcloud.tar.gz *
