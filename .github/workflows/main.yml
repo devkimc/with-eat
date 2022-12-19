@@ -35,7 +35,7 @@ jobs:
         aws-region: ap-northeast-2
         
     - name: upload to S3
-      run: aws s3 cp --region ap-northeast-2 ./build s3://github-action-codedeploy-s3/archive/ --recursive
+      run: aws s3 cp --region ap-northeast-2 ./build s3://with-eat-bucket --recursive
       
     - name: deploy with AWS codeDeploy
       run: aws deploy create-deployment
