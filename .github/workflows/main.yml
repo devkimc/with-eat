@@ -42,4 +42,4 @@ jobs:
         --application-name with-eat-deploy
         --deployment-config-name CodeDeployDefault.OneAtATime
         --deployment-group-name with-eat-deploy-group
-        --s3-location bucket=with-eat-bucket
+        --s3-location bucket=with-eat-bucket,key=string,bundleType=zip
