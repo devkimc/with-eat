@@ -39,7 +39,7 @@ jobs:
       
     - name: deploy with AWS codeDeploy
       run: aws deploy create-deployment
-        --application-name githubaction-test
+        --application-name with-eat-deploy
         --deployment-config-name CodeDeployDefault.OneAtATime
-        --deployment-group-name githubaction-test-group
-        --s3-location bucket=github-action-codedeploy-s3,bundleType=tgz,key=archive/drcloud.tar.gz
+        --deployment-group-name with-eat-deploy-group
+        --s3-location bucket=with-eat-bucket
