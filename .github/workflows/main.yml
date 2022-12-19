@@ -16,23 +16,16 @@ jobs:
       uses: actions/checkout@v3
         
     - name: Package install
-      run: |
-        ls -a
-        yarn
+      run: yarn
         
     - name: Build
-      run: |
-        ls -a
-        yarn build
+      run: yarn build
         
         
     - name: Export
       run: |
         ls -a
         yarn export
-        
-    - name: archive drcloud 
-      run: tar cvfz ./drcloud.tar.gz ./build
        
     - name: AWS configure credentials
       uses: aws-actions/configure-aws-credentials@v1
@@ -42,7 +35,7 @@ jobs:
         aws-region: ap-northeast-2
         
     - name: upload to S3
-      run: aws s3 cp --region ap-northeast-2 ./drcloud.tar.gz s3://github-action-codedeploy-s3/archive/
+      run: aws s3 cp --region ap-northeast-2 ./build s3://github-action-codedeploy-s3/archive/
       
     - name: deploy with AWS codeDeploy
       run: aws deploy create-deployment
