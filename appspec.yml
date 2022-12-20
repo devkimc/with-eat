@@ -1,0 +1,13 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /home/linux/deploy
+    overwrite: yes
+
+permissions:
+  - object: /home/linux/deploy
+    owner: root
+    group: root
+    mode: 755
