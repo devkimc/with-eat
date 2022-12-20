@@ -27,7 +27,7 @@ jobs:
         yarn export
        
     - name: zip distributions
-      run: zip -r with-eat-build.zip ./build
+      run: zip -r with-eat-build.zip ./build ./appspec.yml
        
     - name: AWS configure credentials
       uses: aws-actions/configure-aws-credentials@v1
