@@ -21,11 +21,13 @@ jobs:
     - name: Build
       run: yarn build
         
-        
     - name: Export
       run: |
         ls -a
         yarn export
+       
+    - name: zip distributions
+      run: zip -r with-eat-build.zip ./build
        
     - name: AWS configure credentials
       uses: aws-actions/configure-aws-credentials@v1
@@ -35,11 +37,11 @@ jobs:
         aws-region: ap-northeast-2
         
     - name: upload to S3
-      run: aws s3 cp --region ap-northeast-2 ./build s3://with-eat-bucket --recursive
+      run: aws s3 cp --region ap-northeast-2 ./with-eat-build.zip s3://with-eat-bucket/public/
       
     - name: deploy with AWS codeDeploy
       run: aws deploy create-deployment
         --application-name with-eat-deploy
         --deployment-config-name CodeDeployDefault.OneAtATime
         --deployment-group-name with-eat-deploy-group
-        --s3-location bucket=with-eat-bucket,key=string,bundleType=zip
+        --s3-location bucket=with-eat-bucket,key=public/with-eat-build.zip,bundleType=zip
