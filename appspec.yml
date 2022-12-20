@@ -3,11 +3,11 @@ os: linux
 
 files:
   - source: /
-    destination: /home/linux/deploy
+    destination: /var/www/html
     overwrite: yes
 
 permissions:
-  - object: /home/linux/deploy
+  - object: /var/www/html
     owner: root
     group: root
     mode: 755
