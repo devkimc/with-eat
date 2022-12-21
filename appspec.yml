@@ -18,6 +18,6 @@ permissions:
 
 hooks:
   AfterInstall:
-    - location: /var/www/scripts/after_install.sh
+    - location: ./var/www/scripts/after_install.sh
       timeout: 60
       runas: root
