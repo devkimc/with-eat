@@ -11,3 +11,9 @@ permissions:
     owner: root
     group: root
     mode: 755
+
+hooks:
+  AfterInstall:
+    - location: scripts/after_install.sh
+      timeout: 60
+      runas: root
