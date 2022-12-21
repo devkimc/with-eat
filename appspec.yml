@@ -6,6 +6,10 @@ files:
     destination: /var/www/html
     overwrite: yes
 
+  - source: scripts
+    destination: /var/www/html
+    overwrite: yes
+
 permissions:
   - object: /var/www/html
     owner: root
